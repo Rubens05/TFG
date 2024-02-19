@@ -2,13 +2,16 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 
-const char* ssid = "Orange-E475";
-const char* password = "3mcUAJZC";
-const char* mqttServer = "192.168.1.117";
+// const char* ssid = "Orange-E475";
+// const char* password = "3mcUAJZC";
+// const char* mqttServer = "192.168.1.117";
+const char* ssid = "DIGIFIBRA-HdQF";
+const char* password = "4FXX5tAc37bA";
+const char* mqttServer = "192.168.1.131";
 const char* username = "ruben";
 const char* passwordMQ = "ruben";
 const int mqttPort = 1883;
-const char* mqttTopic = "prueba";
+const char* mqttTopic = "logStatus";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
