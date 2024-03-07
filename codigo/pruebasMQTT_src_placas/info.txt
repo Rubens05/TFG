@@ -1,0 +1,20 @@
+AQUI ESTARÁN LOS ARCHIVOS RELACIONADOS CON LAS PRUEBAS DE LAS PLACAS
+
+emisor_singletopicMQTT es un cpp que publica en UN SOLO topic y además publica la MAC de la placa a modo de identificador
+mosquitto_sub -d -t logStatus -> para suscribirse a ese topic
+
+emisor_multitopicMQTT es un cpp que publicA en varios topics y también publica la MAC de la placa
+mosquitto_sub -t "#" -v -> para suscribirse a todos los topics
+
+
+
+mosquitto_pub -h <direccion IP en la que esta el broker> -t <topico> -m "message" [-u "user"] [-P "password"]
+
+
+PRUEBA:
+
+    Una placa con el script emisor_singletopicMQTT
+    Otra placa con el script emisor_multitopicMQTT 
+    Conectadas a otro ordenador independiente del pc de trabajo
+    Funciona perfectamente la terminal muestra como van llegando los mensajes
+

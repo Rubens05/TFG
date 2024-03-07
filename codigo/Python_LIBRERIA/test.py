@@ -1,10 +1,10 @@
-import libreria
+import libreria as libreria
 import paho.mqtt.client as mqtt
 import random
 
 if __name__ == "__main__":
     # Configuración
-    mqtt_server = "192.168.1.131"
+    mqtt_server = "192.168.1.117"
     mqtt_port = 1883
     ssid = "ruben"
     password = "ruben"

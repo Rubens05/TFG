@@ -1,0 +1,23 @@
+///////////TEST.PY
+En la terminal 
+    sudo systemctl start/stop/restart mosquito.service 
+    pgrep mosquitto para ver los id de los procesos activos
+    sudo kill -9 <PID> para matarlo
+
+Cuando esté activo mosquito en la ip que sea:
+    ifconfig para ver la IP a la que esta activo
+
+Para suscribirnos a un topic
+    mosquitto_sub -d -t logStatus -u "ruben" -P "ruben"
+
+Para publicar en el topic
+    mosquitto_pub -h 192.168.1.117 -t logStatus -m "Lo que sea" -u "ruben" -P "ruben"
+
+Para ejecutar el test.py (actua como publicador)
+    python3 test.py 
+    debe salir por la terminal del suscriptor el mensaje.
+
+
+
+//////////////
+loggingrg-base es el directorio con la futura libreria
