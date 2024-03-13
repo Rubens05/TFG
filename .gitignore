@@ -3,3 +3,7 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+
+codigo/dockercomposes/mqtt5/config/pwfile
+codigo/dockercomposes/mqtt5/data
+codigo/dockercomposes/mqtt5/log
