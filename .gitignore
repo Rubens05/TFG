@@ -11,7 +11,7 @@ codigo/dockercomposes/mqtt5/mosquitto.conf
 
 codigo/dockercomposes/mongo-compose/data
 codigo/dockercomposes/mongo-compose/log
-codigo/dockercomposes/mongo-compose/mongod.conf
+codigo/dockercomposes/mongo-compose/config/pwfile
 
 codigo/dockercomposes/alldocker/data
 codigo/dockercomposes/alldocker/log
