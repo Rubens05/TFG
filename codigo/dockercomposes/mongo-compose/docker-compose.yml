@@ -1,15 +1,54 @@
 version: '3.8'
 
 services:
+
+  mqtt5:
+    image: eclipse-mosquitto
+    container_name: mqtt5
+    hostname: mqtt5
+    ports:
+      - "1883:1883" # default MQTT port
+    volumes:
+      - ./config:/mosquitto/config:rw
+      - ./data:/mosquitto/data:rw
+      - ./log:/mosquitto/log:rw
+    restart: unless-stopped
+    networks:
+      - lognet
+
   mongo:
     image: mongo:latest
+    restart: always
+    container_name: mongo-container
+    hostname: mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongoadmin
       MONGO_INITDB_ROOT_PASSWORD: mongopassword
+    volumes:
+      - ./data:/data/db
+      - ./data/log:/var/log/mongodb
     ports:
       - "27017:27017"
+    networks:
+      - lognet
+
+  telegraf:
+    image: telegraf:latest
+    container_name: telegraf
     volumes:
-      - mongodata:/data/db
-volumes:
-  mongodata:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    depends_on:
+      - mqtt5
+      - mongo
+    restart: unless-stopped
+    links:
+      - mongo
+    ports:
+      - '8125:8125'
+
+    networks:
+      - lognet
+
+networks:
+  lognet:
     driver: bridge

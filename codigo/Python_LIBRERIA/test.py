@@ -9,11 +9,11 @@ if __name__ == "__main__":
     ssid = "ruben"
     password = "ruben"
     mqtt_topic = "logStatus"
-    formatoinfo = '%(asctime)s - %(name)s - %(levelname)s - %(message)s - %(filename)s - %(lineno)d - %(process)d - %(thread)d'
-    formatodebug = '%(asctime)s - %(name)s - %(levelname)s - %(message)s - %(filename)s'
-    formatoerror = '%(asctime)s - %(name)s - %(levelname)s - %(message)s - %(filename)s - %(process)d - %(thread)d'
-    formatowarning = '%(asctime)s - %(name)s - %(levelname)s - %(message)s - %(filename)s - %(lineno)d  - %(thread)d'
-    formatocritical = '%(asctime)s - %(name)s - %(levelname)s - %(message)s - %(filename)s - %(lineno)d - %(process)d '
+    formatoinfo = '%(asctime)s --perosiyopongoestofunciona?------- %(name)s - %(name)s - %(levelname)s - %(message)s - %(levelname)s - %(message)s - %(filename)s - %(lineno)d - %(process)d - %(thread)d'
+    formatodebug = '%(asctime)s -- %(name)s - %(levelname)s - %(message)s - %(filename)s'
+    formatoerror = '%(ascervefe)s ------ %(name)s - %(levelname)s - %(message)s - %(filename)s - %(process)d - %(thread)d'
+    formatowarning = '%(asctime)s ---------- %(name)s - %(levelname)s - %(message)s - %(filename)s - %(lineno)d  - %(thread)d'
+    formatocritical = '%(asctime)s -------- %(name)s - %(levelname)s - %(message)s - %(filename)s - %(lineno)d - %(process)d '
     numero_aleatorio = random.randint(1, 5)
 
 
