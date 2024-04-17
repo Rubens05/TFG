@@ -105,22 +105,126 @@ void setup()
 {
     Serial.begin(9600);
 
-    logger.init(ssid, password, mqttServer, mqttPort);
-    // logger.init(ssid, password, mqttServer, mqttPort, mqttTopic);
-    // logger.init(ssid, password, mqttServer, mqttPort, mqttTopic, idBoard);
-    // logger.init(ssid, password, mqttServer, mqttPort, mqttTopic, idBoard, timeZone);
-    // logger.init(ssid, password, mqttServer, mqttPort, mqttTopic, idBoard, timeZone, ntpServer);
-
     // Cambiar el formato del log opcionalmente
     logger.setLogFormat(logFormat1);
     // logger.setLogFormat(logFormat2);
     // logger.setLogFormat(logFormat3);
+
+    logger.init(ssid, password, mqttServer, mqttPort, mqttTopic, idBoard, timeZone, ntpServer);
 }
 
 void loop()
 {
+
+    int numeroAleatorio = random(0, 21);
+
+    // Hacer un switch para cambiar el valor de mqttTopic e idBoard
+    // según el valor de numeroAleatorio
+
+    switch (numeroAleatorio)
+    {
+    case 0:
+        logger.setBoardId("FASH");
+        break;
+    case 1:
+        logger.setBoardId("SPACE");
+        break;
+    case 2:
+        logger.setBoardId("URBAN");
+        break;
+    case 3:
+        logger.setBoardId("VRART");
+        break;
+    case 4:
+        logger.setBoardId("AIED");
+        break;
+    case 5:
+        logger.setBoardId("CRYPTO");
+        break;
+    case 6:
+        logger.setBoardId("lowcase letters idBoard");
+        break;
+    case 7:
+        logger.setBoardId("ETHERS");
+        break;
+    case 8:
+        logger.setBoardId("HARDBOARD");
+        break;
+    case 9:
+        logger.setBoardId("KRATOS");
+        break;
+    case 10:
+        logger.setBoardId("APHELION");
+        break;
+    case 11:
+        logger.setBoardId("MARS");
+        break;
+    case 12:
+        logger.setBoardId("BITCOIN");
+        break;
+    case 13:
+        logger.setBoardId("MINER");
+        break;
+    case 14:
+        logger.setBoardId("UCLM");
+        break;
+    case 15:
+        logger.setBoardId("GAME-OF-THRONES");
+        break;
+    case 16:
+        logger.setBoardId("MARVEL");
+        break;
+    case 17:
+        logger.setBoardId("ECR");
+        break;
+    case 18:
+        logger.setBoardId("MERN");
+        break;
+    case 19:
+        logger.setBoardId("SON-GOKU");
+        break;
+    case 20:
+        logger.setBoardId("HUNGER-GAMES");
+        break;
+    }
+
+    numeroAleatorio = random(0, 10);
+    switch (numeroAleatorio)
+    {
+    case 0:
+        logger.setMqttTopic("Temperature");
+        break;
+    case 1:
+        logger.setMqttTopic("CAPITAL LETTERS TOPIC");
+        break;
+    case 2:
+        logger.setMqttTopic("ANOTHER TOPIC");
+        break;
+    case 3:
+        logger.setMqttTopic("logStatus");
+        break;
+    case 4:
+        logger.setMqttTopic("Topic 4");
+        break;
+    case 5:
+        logger.setMqttTopic("THIS TOPIC IS VERY LONG BUT IT IS OKAY");
+        break;
+    case 6:
+        logger.setMqttTopic("T");
+        break;
+    case 7:
+        logger.setMqttTopic("S");
+        break;
+    case 8:
+        logger.setMqttTopic("KAMEHAMEHA");
+        break;
+    case 9:
+        logger.setMqttTopic("RASENGAN");
+        break;
+    }
+
     // Generar un número aleatorio entre 0 y 25
-    int numeroAleatorio = random(0, 26);
+    numeroAleatorio = random(0, 26);
 
     // FUNCIONALIDAD DEL USUARIO
     funcionalidadUsuario();
