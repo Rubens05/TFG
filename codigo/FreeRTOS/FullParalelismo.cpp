@@ -3,9 +3,9 @@
 // 2. Crear una tarea que inserte un mensaje en una cola
 // 3. Crear una tarea que imprima el mensaje que le estoy pasando por cola de mensajes
 // 4. Hacer una operacion matematica en una tarea cada n segundos
-// FUNCIONA
 
 #include <Arduino.h>
+#include <WiFi.h>
 
 #define Task1Delay 400
 #define Task2Delay 2000
@@ -42,18 +42,18 @@ void loop()
 
 void Tarea1(void *parameter)
 {
-    for (int i = 0; i < 10; i++)
-    { // Escribe 10 veces
-        Serial.println("Task 1: Hola Mundo");
+    for (int i = 0; i < 5; i++)
+    { // Escribe 5 veces
+        Serial.println("[Task 1]: Hola Mundo");
         vTaskDelay(pdMS_TO_TICKS(Task1Delay));
     }
-    printf("Finalizando tarea 1\n");
+    printf("[Task 1] Finalizando tarea 1\n");
     vTaskDelete(NULL);
 }
 
 void Tarea2(void *parameter)
 {
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 5; i++)
     {
         int a = i;
         int b = random(0, 10);
@@ -61,43 +61,42 @@ void Tarea2(void *parameter)
 
         // Crear una cadena formateada con sprintf
         char buffer[50];
-        sprintf(buffer, "Task 2: %d + %d = %d", a, b, c);
-
-        Serial.println(buffer);
+        sprintf(buffer, "[Task 2]: %d + %d = %d", a, b, c);
+        printf("%s\n", buffer);
 
         vTaskDelay(pdMS_TO_TICKS(Task2Delay));
     }
-    printf("Finalizando tarea 2\n");
+    printf("[Task 2] Finalizando tarea 2\n");
     vTaskDelete(NULL);
 }
 
 void Tarea3(void *parameter)
 {
 
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 5; i++)
     {
         vTaskDelay(pdMS_TO_TICKS(Task3Delay));
-        ESP_LOGI("Tarea1", "Enviando %i a la cola", i); // No se imprime
-        printf("Enviando %i a la cola\n", i);
+        ESP_LOGI("[Task 3]", "Enviando %i a la cola", i); // No se imprime
+        printf("[Task 3] Enviando %i a la cola\n", i);
         if (!xQueueSend(GlobalQueue, &i, pdMS_TO_TICKS(1000)))
         {
-            ESP_LOGE("Tarea1", "Error al enviar %i a la cola está llena", i);
+            ESP_LOGE("[Task 3]", "Error al enviar %i a la cola está llena", i);
         }
         vTaskDelay(pdMS_TO_TICKS(Task3Delay));
     }
-    printf("Finalizando tarea 3\n");
+    printf("[Task 3] Finalizando tarea 3\n");
     vTaskDelete(NULL);
 }
 
 void Tarea4(void *parameter)
 {
     int valorRecibido;
-    int limite = 10;
+    int limite = 5;
     while (1)
     {
         if (!xQueueReceive(GlobalQueue, &valorRecibido, pdMS_TO_TICKS(100)))
         {
-            ESP_LOGE("Tarea2", "No hay datos en la cola");
+            ESP_LOGE("[Task 4]", "No hay datos en la cola");
             limite--;
             if (limite == 0)
             {
@@ -106,16 +105,16 @@ void Tarea4(void *parameter)
         }
         else
         {
-            limite = 10;
+            limite = 5;
             vTaskDelay(pdMS_TO_TICKS(Task4Delay));
             digitalWrite(BUILT_IN_LED, HIGH);
-            ESP_LOGI("Tarea2", "Recibido %i de la cola", valorRecibido); // No se imprime
-            printf("Recibido %i de la cola\n", valorRecibido);
+            ESP_LOGI("[Task 4]", "Recibido %i de la cola", valorRecibido); // No se imprime
+            printf("[Task 4] Recibido %i de la cola\n", valorRecibido);
             vTaskDelay(pdMS_TO_TICKS(Task4Delay));
             digitalWrite(BUILT_IN_LED, LOW);
         }
-        vTaskDelay(pdMS_TO_TICKS(100));
+        vTaskDelay(pdMS_TO_TICKS(500));
     }
-    printf("Finalizando tarea 4\n");
+    printf("[Task 4] Finalizando tarea 4\n");
     vTaskDelete(NULL);
 }

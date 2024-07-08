@@ -9,7 +9,7 @@ if __name__ == "__main__":
     ssid = "ruben"
     password = "ruben"
     mqtt_topic = "logStatus"
-    formatoinfo = '%(asctime)s --perosiyopongoestofunciona?------- %(name)s - %(name)s - %(levelname)s - %(message)s - %(levelname)s - %(message)s - %(filename)s - %(lineno)d - %(process)d - %(thread)d'
+    formatoinfo = '%(asctime)s ---- %(name)s - %(name)s - %(levelname)s - %(message)s - %(levelname)s - %(message)s - %(filename)s - %(lineno)d - %(process)d - %(thread)d'
     formatodebug = '%(asctime)s -- %(name)s - %(levelname)s - %(message)s - %(filename)s'
     formatoerror = '%(ascervefe)s ------ %(name)s - %(levelname)s - %(message)s - %(filename)s - %(process)d - %(thread)d'
     formatowarning = '%(asctime)s ---------- %(name)s - %(levelname)s - %(message)s - %(filename)s - %(lineno)d  - %(thread)d'
