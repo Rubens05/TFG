@@ -4,6 +4,7 @@ services:
 
   mqtt5:
     image: eclipse-mosquitto
+    restart: unless-stopped
     container_name: mqtt5
     hostname: mqtt5
     ports:
@@ -13,13 +14,12 @@ services:
       - ./data:/mosquitto/data:rw
       - ./log:/mosquitto/log:rw
 
-    restart: unless-stopped
     networks:
       - lognet
 
   mongo:
     image: mongo:latest
-    restart: always
+    restart: unless-stopped
     container_name: mongo-container
     hostname: mongo
     environment:
@@ -35,13 +35,13 @@ services:
 
   telegraf:
     image: telegraf:latest
+    restart: unless-stopped
     container_name: telegraf
     volumes:
       - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
     depends_on:
       - mqtt5
       - mongo
-    restart: unless-stopped
     links:
       - mongo
     ports:

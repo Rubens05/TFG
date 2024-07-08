@@ -18,6 +18,3 @@ Para ejecutar el test.py (actua como publicador)
     debe salir por la terminal del suscriptor el mensaje.
 
 
-
-//////////////
-loggingrg-base es el directorio con la futura libreria

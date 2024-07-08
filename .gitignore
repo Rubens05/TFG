@@ -4,15 +4,7 @@
 .vscode/launch.json
 .vscode/ipch
 
-codigo/dockercomposes/mqtt5/config/pwfile
-codigo/dockercomposes/mqtt5/data
-codigo/dockercomposes/mqtt5/log
-codigo/dockercomposes/mqtt5/mosquitto.conf
 
-codigo/dockercomposes/mongo-compose/data
-codigo/dockercomposes/mongo-compose/log
-codigo/dockercomposes/mongo-compose/config/mosquitto_passwords
-
-codigo/dockercomposes/alldocker/data
-codigo/dockercomposes/alldocker/log
-codigo/dockercomposes/alldocker/config/pwfile
+codigo/docker-compose/data
+codigo/docker-compose/log
+codigo/docker-compose/config/mosquitto_passwords

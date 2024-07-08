@@ -1,1 +1,0 @@
-El primer ejemplo de las 2 tareas en paralelo funcionado correctamente
