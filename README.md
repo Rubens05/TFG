@@ -42,8 +42,8 @@ Y finalmente crear el usuario con
 
 ```bash
 db.createUser({
-  user: "mongoadmin2",
-  pwd: "mongopassword2",
+  user: "mongoadmin",
+  pwd: "mongopassword",
   roles: [{ role: "root", db: "admin" }]
 })
 ```
